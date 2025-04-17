@@ -1,0 +1,22 @@
+# for mod_wsgi and django by shkim
+#
+# embedded mode by shkim
+#WSGIScriptAlias /shk /home/shkim/pyStudy/bookDjango/mine/work/ch/wsgi.py
+
+# ~/ch10/mysite project - embedded mode
+
+WSGIScriptAlias / /home/shkim/pyBook/ch10/mysite/wsgi.py
+WSGIPythonHome /home/shkim/pyBook/ch10/venv
+WSGIPythonPath /home/shkim/pyBook/ch10
+WSGIApplicationGroup %{GLOBAL}
+
+<Directory /home/shkim/pyBook/ch10/mysite>
+<Files wsgi.py>
+Require all granted
+</Files>
+</Directory>
+
+Alias /static/ /home/shkim/pyBook/ch10/www_dir/static/
+<Directory /home/shkim/pyBook/ch10/www_dir/static>
+Require all granted
+</Directory>

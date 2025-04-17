@@ -1,0 +1,23 @@
+# for mod_wsgi and django by shkim
+#
+# daemon mode by shkim
+#WSGIScriptAlias /shk /home/shkim/pyStudy/bookDjango/mine/work/ch/wsgi.py
+#WSGIPythonPath /home/shkim/pyStudy/bookDjango/mine/work # Cannot used in Daemon mode
+
+# ~/ch10/mysite project - daemon mode
+
+WSGIScriptAlias / /home/shkim/pyBook/ch10/mysite/wsgi.py
+WSGIDaemonProcess mygroup python-home=/home/shkim/pyBook/ch10/venv python-path=/home/shkim/pyBook/ch10
+WSGIProcessGroup mygroup
+WSGIApplicationGroup %{GLOBAL}
+
+<Directory /home/shkim/pyBook/ch10/mysite>
+<Files wsgi.py>
+Require all granted
+</Files>
+</Directory>
+
+Alias /static/ /home/shkim/pyBook/ch10/www_dir/static/
+<Directory /home/shkim/pyBook/ch10/www_dir/static>
+Require all granted
+</Directory>
